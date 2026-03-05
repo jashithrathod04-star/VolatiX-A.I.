@@ -541,16 +541,7 @@ if st.session_state.page == "landing":
 
     
 
-    st.markdown("""
-    <div class="glass-card">
-        <div class="gradient-text">
-            VolatiX AI
-        </div>
-        <p style="text-align:center; font-size:18px; opacity:0.8; margin-top:20px;">
-            AI-Powered Crypto Volatility Intelligence Platform
-        </p>
-    </div>
-    """, unsafe_allow_html=True)
+   
 
     st.write("")
     st.write("")
