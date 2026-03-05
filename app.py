@@ -387,6 +387,152 @@ if st.session_state.page == "splash":
 
 if st.session_state.page == "landing":
 
+
+
+
+    landing_html = """
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <style>
+    body {
+        margin: 0;
+        overflow: hidden;
+        background: radial-gradient(circle at center, #0f0c29, #302b63, #24243e);
+        font-family: 'Segoe UI', sans-serif;
+    }
+    
+    /* ---------------- PARTICLES ---------------- */
+    .particles {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle, rgba(255,215,0,0.12) 1px, transparent 1px);
+        background-size: 60px 60px;
+        animation: moveParticles 60s linear infinite;
+        z-index: 1;
+    }
+    
+    @keyframes moveParticles {
+        0% { background-position: 0 0; }
+        100% { background-position: 800px 800px; }
+    }
+    
+    /* ---------------- CURTAINS ---------------- */
+    .curtain-left, .curtain-right {
+        position: absolute;
+        top: 0;
+        width: 50%;
+        height: 100%;
+        background: linear-gradient(to bottom, #3a0000, #120000);
+        z-index: 3;
+    }
+    
+    .curtain-left {
+        left: 0;
+        border-right: 4px solid #D4AF37;
+        animation: openLeft 3s forwards ease-in-out;
+    }
+    
+    .curtain-right {
+        right: 0;
+        border-left: 4px solid #D4AF37;
+        animation: openRight 3s forwards ease-in-out;
+    }
+    
+    @keyframes openLeft {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-100%); }
+    }
+    
+    @keyframes openRight {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(100%); }
+    }
+    
+    /* ---------------- CONTENT ---------------- */
+    .content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        z-index: 2;
+        width: 90%;
+        max-width: 1200px;
+        opacity: 0;
+        animation: fadeIn 2.5s forwards;
+        animation-delay: 3s; /* waits for curtains to open */
+    }
+    
+    .content .title {
+        font-size: 4rem;
+        font-weight: 900;
+        background: linear-gradient(90deg, #00f5ff, #ff00cc, #00ff88);
+        background-size: 300%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: gradientMove 6s linear infinite, pulseGlow 2s ease-in-out infinite;
+    }
+    
+    .content .subtitle {
+        margin-top: 20px;
+        font-size: 1.5rem;
+        color: rgba(255,255,255,0.85);
+        animation: fadeUp 2s forwards;
+        animation-delay: 4s;
+    }
+    
+    /* ---------------- ANIMATIONS ---------------- */
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translate(-50%, -55%); }
+        to { opacity: 1; transform: translate(-50%, -50%); }
+    }
+    
+    @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(20px);}
+        to { opacity: 1; transform: translateY(0);}
+    }
+    
+    @keyframes gradientMove {
+        0% { background-position: 0% }
+        100% { background-position: 300% }
+    }
+    
+    @keyframes pulseGlow {
+        0% { text-shadow: 0 0 15px rgba(0,245,255,0.3); }
+        50% { text-shadow: 0 0 40px rgba(0,245,255,0.8); }
+        100% { text-shadow: 0 0 15px rgba(0,245,255,0.3); }
+    }
+    </style>
+    </head>
+    <body>
+    
+    <div class="particles"></div>
+    
+    <div class="curtain-left"></div>
+    <div class="curtain-right"></div>
+    
+    <div class="content">
+        <div class="title">📊 VolatiX AI</div>
+        <div class="subtitle">AI-Powered Crypto Volatility Intelligence Platform</div>
+    </div>
+    
+    </body>
+    </html>
+    """
+    
+    # Display in Streamlit
+    import streamlit.components.v1 as components
+    components.html(landing_html, height=800)
+
+
+
+
+
+
+    
+
     st.markdown("""
     <div class="glass-card">
         <div class="gradient-text">
