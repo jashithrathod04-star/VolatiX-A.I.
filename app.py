@@ -483,7 +483,7 @@ if st.session_state.page == "landing":
     
     /* OPTIONAL: glass-card styling if not already applied */
     .glass-card {
-        backdrop-filter: blur(25px);
+        backdrop-filter: blur(5px);
         background: rgba(255,255,255,0.05);
         border-radius: 25px;
         padding: 60px;
