@@ -1032,8 +1032,13 @@ if st.session_state.page == "dashboard":
     average_price = df["Close"].mean()
     peak_price = df["High"].max()
     average_drift = df["Close"].diff().mean()
+
+
+    if not df.empty and "Close" in df.columns:
+        market_trend = "📈 Upward" if df["Close"].iloc[-1] > df["Close"].iloc[0] else "📉 Downward"
+    else:
+        market_trend = "⚠️ No Data"
     
-    market_trend = "📈 Upward" if df["Close"].iloc[-1] > df["Close"].iloc[0] else "📉 Downward"
     
     
     
