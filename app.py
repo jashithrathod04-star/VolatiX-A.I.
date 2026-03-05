@@ -490,6 +490,8 @@ if st.session_state.page == "landing":
         border: 1px solid rgba(255,255,255,0.15);
         box-shadow: 0 0 40px rgba(0,255,255,0.2);
     }
+
+
     .gradient-text {
         background: linear-gradient(90deg, #00f5ff, #ff00cc, #00ffcc);
         -webkit-background-clip: text;
@@ -497,6 +499,34 @@ if st.session_state.page == "landing":
         font-size: 60px;
         font-weight: 800;
         text-align:center;
+    
+        /* GLOW EFFECT */
+        text-shadow:
+            0 0 5px #00f5ff,
+            0 0 10px #00f5ff,
+            0 0 20px #ff00cc,
+            0 0 30px #ff00cc,
+            0 0 40px #00ffcc;
+        animation: glowText 2s ease-in-out infinite alternate;
+    }
+    
+    @keyframes glowText {
+        0% {
+            text-shadow:
+                0 0 5px #00f5ff,
+                0 0 10px #00f5ff,
+                0 0 20px #ff00cc,
+                0 0 30px #ff00cc,
+                0 0 40px #00ffcc;
+        }
+        100% {
+            text-shadow:
+                0 0 15px #00f5ff,
+                0 0 25px #00f5ff,
+                0 0 40px #ff00cc,
+                0 0 50px #ff00cc,
+                0 0 60px #00ffcc;
+        }
     }
     </style>
     """
