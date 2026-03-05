@@ -391,34 +391,47 @@ if st.session_state.page == "landing":
 
 
     landing_html = """
-    <!DOCTYPE html>
-    <html>
-    <head>
-    <style>
-    body {
-        margin: 0;
-        overflow: hidden;
-        background: radial-gradient(circle at center, #0f0c29, #302b63, #24243e);
-        font-family: 'Segoe UI', sans-serif;
-    }
+    <div class="landing-container">
     
-    /* ---------------- PARTICLES ---------------- */
+        <!-- PARTICLES BACKGROUND -->
+        <div class="particles"></div>
+    
+        <!-- CURTAINS -->
+        <div class="curtain-left"></div>
+        <div class="curtain-right"></div>
+    
+        <!-- MAIN CONTENT -->
+        <div class="content">
+            <div class="glass-card">
+                <div class="gradient-text">
+                    VolatiX AI
+                </div>
+                <p style="text-align:center; font-size:18px; opacity:0.8; margin-top:20px;">
+                    AI-Powered Crypto Volatility Intelligence Platform
+                </p>
+            </div>
+        </div>
+    
+    </div>
+    
+    <style>
+    /* PARTICLES */
     .particles {
         position: absolute;
         width: 100%;
         height: 100%;
-        background: radial-gradient(circle, rgba(255,215,0,0.12) 1px, transparent 1px);
-        background-size: 60px 60px;
+        background: radial-gradient(circle, rgba(0,245,255,0.12) 1px, transparent 1px);
+        background-size: 70px 70px;
         animation: moveParticles 60s linear infinite;
         z-index: 1;
     }
     
     @keyframes moveParticles {
-        0% { background-position: 0 0; }
-        100% { background-position: 800px 800px; }
+        from { background-position: 0 0; }
+        to { background-position: 800px 800px; }
     }
     
-    /* ---------------- CURTAINS ---------------- */
+    /* CURTAINS */
     .curtain-left, .curtain-right {
         position: absolute;
         top: 0;
@@ -441,16 +454,14 @@ if st.session_state.page == "landing":
     }
     
     @keyframes openLeft {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(-100%); }
+        to { transform: translateX(-100%); }
     }
     
     @keyframes openRight {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(100%); }
+        to { transform: translateX(100%); }
     }
     
-    /* ---------------- CONTENT ---------------- */
+    /* CONTENT FADE-IN */
     .content {
         position: absolute;
         top: 50%;
@@ -458,82 +469,40 @@ if st.session_state.page == "landing":
         transform: translate(-50%, -50%);
         text-align: center;
         z-index: 2;
-        width: 90%;
-        max-width: 1200px;
+        width: 85%;
+        max-width: 600px;
         opacity: 0;
-        animation: fadeIn 2.5s forwards;
-        animation-delay: 3s; /* waits for curtains to open */
+        animation: fadeIn 2s forwards;
+        animation-delay: 3s; /* starts after curtains open */
     }
     
-    .content .title {
-        font-size: 4rem;
-        font-weight: 900;
-        background: linear-gradient(90deg, #00f5ff, #ff00cc, #00ff88);
-        background-size: 300%;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        animation: gradientMove 6s linear infinite, pulseGlow 2s ease-in-out infinite;
-    }
-    
-    .content .subtitle {
-        margin-top: 20px;
-        font-size: 1.5rem;
-        color: rgba(255,255,255,0.85);
-        animation: fadeUp 2s forwards;
-        animation-delay: 4s;
-    }
-    
-    /* ---------------- ANIMATIONS ---------------- */
     @keyframes fadeIn {
-        from { opacity: 0; transform: translate(-50%, -55%); }
+        from { opacity: 0; transform: translate(-50%, -40%); }
         to { opacity: 1; transform: translate(-50%, -50%); }
     }
     
-    @keyframes fadeUp {
-        from { opacity: 0; transform: translateY(20px);}
-        to { opacity: 1; transform: translateY(0);}
+    /* OPTIONAL: glass-card styling if not already applied */
+    .glass-card {
+        backdrop-filter: blur(25px);
+        background: rgba(255,255,255,0.05);
+        border-radius: 25px;
+        padding: 60px;
+        border: 1px solid rgba(255,255,255,0.15);
+        box-shadow: 0 0 40px rgba(0,255,255,0.2);
     }
-    
-    @keyframes gradientMove {
-        0% { background-position: 0% }
-        100% { background-position: 300% }
-    }
-    
-    @keyframes pulseGlow {
-        0% { text-shadow: 0 0 15px rgba(0,245,255,0.3); }
-        50% { text-shadow: 0 0 40px rgba(0,245,255,0.8); }
-        100% { text-shadow: 0 0 15px rgba(0,245,255,0.3); }
+    .gradient-text {
+        background: linear-gradient(90deg, #00f5ff, #ff00cc, #00ffcc);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-size: 60px;
+        font-weight: 800;
+        text-align:center;
     }
     </style>
-    </head>
-    <body>
-    
-    <div class="particles"></div>
-    
-    <div class="curtain-left"></div>
-    <div class="curtain-right"></div>
-    
-    <div class="content">
-        st.markdown("""
-        <div class="glass-card">
-            <div class="gradient-text">
-                VolatiX AI
-            </div>
-            <p style="text-align:center; font-size:18px; opacity:0.8; margin-top:20px;">
-                AI-Powered Crypto Volatility Intelligence Platform
-            </p>
-        </div>
-        """, unsafe_allow_html=True)
-    
-        st.write("")
-    
-    </body>
-    </html>
     """
     
-    # Display in Streamlit
     import streamlit.components.v1 as components
-    components.html(landing_html, height=800)
+    components.html(landing_html, height=600)
 
 
 
