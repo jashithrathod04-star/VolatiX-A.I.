@@ -521,11 +521,11 @@ if st.session_state.page == "landing":
         }
         100% {
             text-shadow:
-                0 0 15px #00f5ff,
-                0 0 25px #00f5ff,
-                0 0 40px #ff00cc,
-                0 0 50px #ff00cc,
-                0 0 60px #00ffcc;
+                0 0 5px #00f5ff,
+                0 0 5px #00f5ff,
+                0 0 4px #ff00cc,
+                0 0 5px #ff00cc,
+                0 0 6px #00ffcc;
         }
     }
     </style>
