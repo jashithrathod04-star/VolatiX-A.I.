@@ -778,7 +778,7 @@ if st.session_state.page == "dashboard":
     def load_data(period_choice):
     
         period_map = {
-            "Full Sample": "max",
+            "Full Sample": "10y",
             "10 Years": "10y",
             "5 Years": "5y",
             "2 Years": "2y",
