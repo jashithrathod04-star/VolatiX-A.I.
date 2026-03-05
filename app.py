@@ -514,8 +514,14 @@ if st.session_state.page == "landing":
     <div class="curtain-right"></div>
     
     <div class="content">
-        <div class="title">📊 VolatiX AI</div>
-        <div class="subtitle">AI-Powered Crypto Volatility Intelligence Platform</div>
+        <div class="glass-card">
+            <div class="gradient-text">
+                VolatiX AI
+            </div>
+            <p style="text-align:center; font-size:18px; opacity:0.8; margin-top:20px;">
+                AI-Powered Crypto Volatility Intelligence Platform
+            </p>
+        </div>
     </div>
     
     </body>
