@@ -502,11 +502,11 @@ if st.session_state.page == "landing":
     
         /* GLOW EFFECT */
         text-shadow:
-            0 0 5px #00f5ff,
-            0 0 10px #00f5ff,
-            0 0 20px #ff00cc,
-            0 0 30px #ff00cc,
-            0 0 40px #00ffcc;
+            0 0 2px #00f5ff,
+            0 0 1px #00f5ff,
+            0 0 2px #ff00cc,
+            0 0 3px #ff00cc,
+            0 0 4px #00ffcc;
         animation: glowText 2s ease-in-out infinite alternate;
     }
     
