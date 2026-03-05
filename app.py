@@ -1362,7 +1362,7 @@ if st.session_state.page == "dashboard":
     # TAB STRUCTURE
     # ==================================================
     
-    tab1, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs([
+    tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8 = st.tabs([
     "📈 Simulation",
     "💰 Close Price",
     "📊 Volume",
@@ -1370,6 +1370,7 @@ if st.session_state.page == "dashboard":
     "📉 High vs Low",    
     "💬 Feedback",
     "⚙ Settings"
+    "Data Summary"    
      ])
     # ==================================================
     # TAB 1 — REAL DATA VISUALIZATION
@@ -1682,6 +1683,57 @@ if st.session_state.page == "dashboard":
         
         </div>
         """, unsafe_allow_html=True)
+
+
+
+    with tab8:
+
+        
+        st.markdown("## 📑 Data Summary")
+    
+        st.write("This section provides an overview of the dataset used for crypto volatility analysis.")
+    
+        # Dataset Preview
+        st.subheader("📋 Dataset Preview")
+        st.dataframe(df.head())
+    
+        # Dataset Shape
+        st.subheader("📏 Dataset Shape")
+        rows, cols = df.shape
+        st.write(f"**Rows:** {rows}")
+        st.write(f"**Columns:** {cols}")
+    
+        # Column Names
+        st.subheader("🧾 Dataset Columns")
+        st.write(df.columns.tolist())
+    
+        # Missing Values
+        st.subheader("⚠ Missing Values")
+        missing_values = df.isnull().sum()
+        st.dataframe(missing_values)
+    
+        # Statistical Summary
+        st.subheader("📊 Statistical Summary")
+        st.dataframe(df.describe())
+    
+        # Close Price Insights
+        if "Close" in df.columns:
+            st.subheader("💰 Close Price Insights")
+    
+            st.metric("Average Close Price", round(df["Close"].mean(),2))
+            st.metric("Highest Close Price", round(df["Close"].max(),2))
+            st.metric("Lowest Close Price", round(df["Close"].min(),2))
+
+
+
+        
+
+
+
+
+        
+
+        
 
 
 
