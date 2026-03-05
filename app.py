@@ -514,6 +514,7 @@ if st.session_state.page == "landing":
     <div class="curtain-right"></div>
     
     <div class="content">
+        st.markdown("""
         <div class="glass-card">
             <div class="gradient-text">
                 VolatiX AI
@@ -522,7 +523,9 @@ if st.session_state.page == "landing":
                 AI-Powered Crypto Volatility Intelligence Platform
             </p>
         </div>
-    </div>
+        """, unsafe_allow_html=True)
+    
+        st.write("")
     
     </body>
     </html>
