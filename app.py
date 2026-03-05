@@ -1369,7 +1369,7 @@ if st.session_state.page == "dashboard":
     "📉 Volatility",
     "📉 High vs Low",    
     "💬 Feedback",
-    "⚙ Settings"
+    "⚙ Settings",
     "Data Summary"    
      ])
     # ==================================================
